@@ -1,0 +1,120 @@
+* {
+    box-sizing: border-box;
+}
+
+.home-container {
+    background-image: url("images/phillyblue.jpg");
+    background-position: center;
+    background-size: cover;
+    width: 100%;
+}
+#intro-page{
+    width:100%;
+}
+
+nav {
+    background-color: dodgerblue;
+}
+
+     /* nav bar button css */
+
+nav .btn {
+    background-color: white;
+    color: black;
+    font-family: comic sans Ms;
+    border-radius: 10px;
+    border: 2px solid black;
+}
+
+nav .btn:hover {
+    background-color: black;
+    color: white;
+    border: 2px solid white;
+
+}
+
+#home {
+    background-size: cover;
+    height: 800px;
+}
+
+#about {
+    background-color: dodgerblue;
+    height: 600px;
+}
+
+/* me */
+
+#about-header {
+    font-size: 60px;
+}
+
+#skills-header {
+    font-size: 60px;   
+}
+
+#projects-header {
+    font-size: 60px;
+}
+
+.icon-image {
+    height: 50px;
+    margin-left: 10%;
+}
+
+#photo {
+    height: 500px;
+}
+
+#summary {
+    font-size: 24px;
+    margin-left: 10%;
+}
+
+#skill {
+    text-align: center;
+}
+
+.card {
+    margin: 3%;
+    align-content: center;
+}
+
+.nav-link {
+    color:black;
+}
+
+.infoBox {
+    width: 736px;
+    background: linear-gradient(rebeccapurple 48px, #EEEEEE 48px);
+    padding: 0 0px 10px;
+    margin: 0 auto;
+    overflow: hidden;
+}
+
+.infoBox:first-of-type {
+    margin: 30px auto 0;
+}
+
+.infoTitle {
+    font-size: 36px;
+    padding: 6px 0;
+    margin-bottom: 10px;
+}
+
+.link, svg, .techIcon, #navTitle {
+    display: inline-block;
+}
+
+.techIcon {
+    margin: 5px;
+    width: 100px;
+    height: 100px;
+}
+.svgLink {
+    margin: 0 5px;
+}
+.anchor {
+    position: relative;
+    top: -80px;
+}
