@@ -1,3 +1,3 @@
 # trommater
 
-portfolio at briantrommater.com
+portfolio at http://briantrommater.com
