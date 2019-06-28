@@ -1,9 +1,33 @@
 body {
    
-        background: linear-gradient(-75deg, rgb(3, 245, 3), white , Dodgerblue, white);
+        background: linear-gradient(-45deg, rgb(3, 245, 3), white , Dodgerblue, white);
         -webkit-animation: Gradient 3s ease infinite;
         animation: Gradient 3s ease infinite;
         transition: transform 1s ease-in-out, opacity 1s ease-in-out;
+        background-size: 200% 200%;
     
 }
 
+@-webkit-keyframes Gradient {
+	0% {
+		background-position: 0% 50%
+	}
+	50% {
+		background-position: 100% 50%
+	}
+	100% {
+		background-position: 0% 50%
+	}
+}
+
+@keyframes Gradient {
+	0% {
+		background-position: 0% 50%
+	}
+	50% {
+		background-position: 100% 50%
+	}
+	100% {
+		background-position: 0% 50%
+	}
+}
