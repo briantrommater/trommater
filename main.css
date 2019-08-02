@@ -35,11 +35,11 @@ body {
 .button {
 	background-color: dodgerblue;
 	border: none;
-	color: white;
+	color: darkblue;
 	padding: 0.3em;
 	text-align: center;
 	display: inline-block;
-	font-size: 1em;
+	font-size: 8px;
 	margin: 5% 12%;
 	border-radius: 50%;
   }
