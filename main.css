@@ -40,7 +40,8 @@ body {
 	text-align: center;
 	display: inline-block;
 	font-size: 8px;
-	margin: 10px 10px;
+	margin: auto;
+	width: 50%;
 	border-radius: 50%;
   }
 
