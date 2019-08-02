@@ -31,3 +31,16 @@ body {
 		background-position: 0% 50%
 	}
 }
+
+.button {
+	background-color: dodgerblue;
+	border: none;
+	color: white;
+	padding: 1.2em;
+	text-align: center;
+	display: inline-block;
+	font-size: 8em;
+	margin: 5% 25%;
+	border-radius: 50%;
+  }
+
