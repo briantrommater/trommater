@@ -1,6 +1,6 @@
 body {
    
-        background: linear-gradient(-67deg, rgb(3, 245, 3), white , Dodgerblue, white);
+        background: linear-gradient(-67deg, rgb(3, 245, 3), white, DodgerBlue, white);
         -webkit-animation: Gradient 3s ease infinite;
         animation: Gradient 3s ease infinite;
         transition: transform 1s ease-in-out, opacity 1s ease-in-out;
