@@ -1,6 +1,6 @@
 body {
    
-        background: linear-gradient(-67deg, rgb(3, 225, 3), white, Crimson, white);
+        background: linear-gradient(-67deg, rgb(3, 225, 3), white, Chartreuse, white);
         -webkit-animation: Gradient 3s ease infinite;
         animation: Gradient 3s ease infinite;
         transition: transform 1s ease-in-out, opacity 1s ease-in-out;
@@ -33,7 +33,7 @@ body {
 }
 
 .button {
-	background-color: crimson;
+	background-color: chartreuse;
 	border: none;
 	color: darkgreen;
 	padding: 10px;
