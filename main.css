@@ -4,7 +4,7 @@ body {
         -webkit-animation: Gradient 3s ease infinite;
         animation: Gradient 3s ease infinite;
         transition: transform 1s ease-in-out, opacity 1s ease-in-out;
-	height: 100px;
+	height: 100%;
   	width: 100%;
     
 }
