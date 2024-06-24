@@ -1,6 +1,6 @@
 body {
    
-        background: linear-gradient(-67deg, lightskyblue, white, red);
+        background: linear-gradient(-67deg, lightskyblue, white, blue);
         -webkit-animation: Gradient 3s ease infinite;
         animation: Gradient 3s ease infinite;
         transition: transform 1s ease-in-out, opacity 1s ease-in-out;
