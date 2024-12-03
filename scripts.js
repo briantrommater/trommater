@@ -37,7 +37,7 @@ document.addEventListener('DOMContentLoaded', () => {
             if (y * fontSize > matrixCanvas.height || Math.random() > 0.98) {
                 drops[index] = 0; // Reset drop to the top
             }
-            drops[index] += 0.5; // Slower increment for half speed
+            drops[index] += 0.33; // Slower increment for half speed
         });
 
         requestAnimationFrame(drawMatrix);
