@@ -21,6 +21,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const contactButton = document.querySelector('.btn');
     contactButton.addEventListener('click', (e) => {
         e.preventDefault();
-        alert('Thanks for your interest! Please send us an email at contact@osintservices.com.');
+        alert('Thanks for your interest! Please send us an email at briantrommater@protonmail.com.');
     });
 });
