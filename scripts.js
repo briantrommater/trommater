@@ -14,6 +14,7 @@ document.addEventListener('DOMContentLoaded', () => {
     matrixCanvas.style.left = '0';
     matrixCanvas.style.width = '100%';
     matrixCanvas.style.height = '100%';
+    matrixCanvas.style.zIndex = '-1'; // Ensure the canvas stays behind the content
     matrixBg.appendChild(matrixCanvas);
 
     const ctx = matrixCanvas.getContext('2d');
@@ -46,4 +47,3 @@ document.addEventListener('DOMContentLoaded', () => {
 
     drawMatrix();
 });
-
