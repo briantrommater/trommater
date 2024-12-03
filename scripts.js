@@ -33,10 +33,11 @@ document.addEventListener('DOMContentLoaded', () => {
             const text = String.fromCharCode(0x30A0 + Math.random() * 96);
             ctx.fillText(text, index * fontSize, y * fontSize);
 
-            if (y * fontSize > matrixCanvas.height || Math.random() > 0.95) {
-                drops[index] = 0;
+            // Move the drop down at half speed
+            if (y * fontSize > matrixCanvas.height || Math.random() > 0.98) {
+                drops[index] = 0; // Reset drop to the top
             }
-            drops[index]++;
+            drops[index] += 0.5; // Slower increment for half speed
         });
 
         requestAnimationFrame(drawMatrix);
