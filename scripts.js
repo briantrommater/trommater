@@ -6,7 +6,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Add lens flare effect
     const lensFlareBg = document.querySelector('.lens-flare-bg');
-    const lensFlare = document.createElement('div');
-    lensFlare.classList.add('lens-flare');
-    lensFlareBg.appendChild(lensFlare);
+
+    if (lensFlareBg) {
+        const lensFlare = document.createElement('div');
+        lensFlare.classList.add('lens-flare');
+        lensFlareBg.appendChild(lensFlare);
+    } else {
+        console.error("Lens flare background container not found.");
+    }
 });
