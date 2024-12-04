@@ -4,31 +4,41 @@ body {
     margin: 0;
     padding: 0;
     background-color: black;
-    color: #00ff00;
+    color: #00ffcc;
     overflow: hidden;
 }
 
-/* Matrix Background */
-.matrix-bg canvas {
-    position: fixed;
-    top: 0;
-    left: 0;
+/* Satellite Background */
+.satellite-bg {
+    position: relative;
     width: 100%;
     height: 100%;
-    z-index: -1; /* Ensure it's behind the content */
-    pointer-events: none; /* Make it non-interactive */
+    background: url('https://i.imgur.com/3JWNzYJ.jpg') no-repeat center center fixed; /* Replace with a high-quality satellite map image */
+    background-size: cover;
+    z-index: -1;
 }
 
-/* Content Wrapper */
-.content-wrapper {
-    position: relative;
-    z-index: 1; /* Ensure content is above the canvas */
-    padding: 20px;
-    max-width: 800px;
-    margin: 20px auto;
-    background: rgba(0, 0, 0, 0.8); /* Dark transparent background */
-    border-radius: 10px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.7);
+/* Glowing Pins */
+.pin {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    background: #00ffcc;
+    border-radius: 50%;
+    box-shadow: 0 0 15px 5px #00ffcc;
+    animation: pulse 2s infinite;
+}
+
+/* Animated Pulse Effect */
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+        opacity: 1;
+    }
+    100% {
+        transform: scale(2);
+        opacity: 0;
+    }
 }
 
 /* Header */
@@ -36,133 +46,68 @@ header {
     text-align: center;
     padding: 30px;
     margin-bottom: 20px;
+    background: rgba(0, 0, 0, 0.8);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
 }
 
 header h1 {
     font-size: 2.8rem;
-    color: #00ff00;
-    text-shadow: 0 0 10px #00ff00;
+    color: #00ffcc;
+    text-shadow: 0 2px 5px rgba(0, 0, 0, 0.7);
 }
 
 header p {
     font-size: 1.2rem;
-    color: #00cc00;
+    color: #00b3b3;
 }
 
 /* Main Content */
+main {
+    background: rgba(0, 0, 0, 0.8);
+    border-radius: 10px;
+    margin: 20px auto;
+    padding: 20px;
+    max-width: 800px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+}
+
 h2 {
-    color: #00ff00;
-    text-shadow: 0 0 10px #00ff00;
+    color: #00ffcc;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.7);
 }
 
-ul {
-    list-style: none;
-    padding: 0;
-}
-
-ul li {
-    padding: 5px 0;
+/* Embedded YouTube Video Styles */
+.video-container {
     position: relative;
+    width: 100%;
+    padding-bottom: 56.25%; /* Aspect ratio 16:9 */
+    height: 0;
+    overflow: hidden;
+    margin: 20px 0;
 }
 
-ul li::before {
-    content: '>';
-    color: #00cc00;
-    margin-right: 10px;
-}
-
-p {
-    line-height: 1.5;
-}
-
-/* Buttons */
-.btn {
-    display: inline-block;
-    padding: 12px 20px;
-    color: black;
-    background: #00ff00;
-    text-decoration: none;
-    font-weight: bold;
-    border-radius: 5px;
-    text-shadow: 0 0 5px #000;
-    transition: all 0.3s ease-in-out;
-    position: relative; /* Ensure it's positioned relative to content */
-    z-index: 2; /* Ensure it's above any overlapping elements */
-}
-
-.btn:hover {
-    background: #00cc00;
-    transform: scale(1.1);
+.video-container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: 2px solid #00b3b3;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
 }
 
 /* Footer */
 footer {
     text-align: center;
     padding: 10px;
+    background: rgba(0, 0, 0, 0.8);
+    box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.5);
     font-size: 0.9rem;
-    background: rgba(0, 0, 0, 0.9);
-    box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.7);
     margin-top: 20px;
 }
 
 footer p {
     margin: 0;
-    color: #00cc00;
-}
-
-/* Responsive Design */
-@media (max-width: 768px) {
-    .content-wrapper {
-        padding: 15px;
-        margin: 10px;
-    }
-
-    header h1 {
-        font-size: 2rem;
-    }
-
-    header p {
-        font-size: 1rem;
-    }
-
-    h2 {
-        font-size: 1.5rem;
-    }
-
-    p, ul li {
-        font-size: 1rem;
-    }
-
-    .btn {
-        padding: 10px 15px;
-        font-size: 0.9rem;
-    }
-}
-
-@media (max-width: 480px) {
-    .content-wrapper {
-        padding: 10px;
-        margin: 5px;
-    }
-
-    header h1 {
-        font-size: 1.8rem;
-    }
-
-    header p {
-        font-size: 0.9rem;
-    }
-
-    h2 {
-        font-size: 1.2rem;
-    }
-
-    p, ul li {
-        font-size: 0.8rem;
-    }
-
-    .btn {
-        padding: 8px 12px;
-        font-size: 0.8rem;
-    }
+    color: #00b3b3;
 }
