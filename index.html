@@ -11,22 +11,56 @@
 
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;700&display=swap" rel="stylesheet">
-</head>
-<body>
-    <div class="matrix-bg">
-        <header><!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Professional Open Source Intelligence (OSINT) services to meet your investigative needs.">
-    <title>OSINT Services</title>
-
-    <!-- Link to External CSS -->
-    <link rel="stylesheet" href="styles.css">
-
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        /* Inline CSS for quick responsiveness */
+        body {
+            margin: 0;
+            font-family: 'Roboto Mono', monospace;
+        }
+        .matrix-bg {
+            background-color: #121212;
+            color: #ffffff;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+        header, footer {
+            text-align: center;
+            padding: 1em;
+        }
+        main {
+            flex: 1;
+            padding: 1em;
+        }
+        section {
+            margin-bottom: 2em;
+        }
+        .video-container {
+            position: relative;
+            padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+            height: 0;
+            overflow: hidden;
+        }
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+        .btn {
+            display: inline-block;
+            margin-top: 1em;
+            padding: 0.5em 1em;
+            background-color: #007BFF;
+            color: #ffffff;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+        .btn:hover {
+            background-color: #0056b3;
+        }
+    </style>
 </head>
 <body>
     <div class="matrix-bg">
@@ -83,53 +117,5 @@
             <p>&copy; 2024 OSINT Services. All rights reserved.</p>
         </footer>
     </div>
-
-    <!-- Link to External JavaScript -->
-    <script src="scripts.js" defer></script>
-</body>
-</html>
-
-            <h1>OSINT Services</h1>
-            <p>Uncover the Truth in a Digital World</p>
-        </header>
-        <main>
-            <section>
-                <h2>About Us</h2>
-                <p>We are experts in Open Source Intelligence (OSINT), leveraging cutting-edge techniques to provide deep insights and reliable data analysis for businesses, individuals, and government entities.</p>
-            </section>
-            <section>
-                <h2>Watch Our Introduction</h2>
-                <!-- YouTube Embedded Video -->
-                <div class="video-container">
-                    <iframe 
-                        src="https://www.youtube.com/embed/1VmWDg5A-I0" 
-                        frameborder="0" 
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-                        allowfullscreen>
-                    </iframe>
-                </div>
-            </section>
-            <section>
-                <h2>Our Services</h2>
-                <ul>
-                    <li>Social Media Investigations</li>
-                    <li>Geolocation and Metadata Analysis</li>
-                    <li>Corporate and Personal Risk Assessment</li>
-                    <li>Threat Intelligence and Profiling</li>
-                </ul>
-            </section>
-            <section>
-                <h2>Why Choose Us?</h2>
-                <p>We deliver precise, actionable intelligence while adhering to the highest ethical standards. Trust us to turn data into clarity.</p>
-                <a href="briantrommater@protonmail.com" class="btn">Contact Us</a>
-            </section>
-        </main>
-        <footer>
-            <p>&copy; 2024 OSINT Services. All rights reserved.</p>
-        </footer>
-    </div>
-
-    <!-- Link to External JavaScript -->
-    <script src="scripts.js" defer></script>
 </body>
 </html>
