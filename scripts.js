@@ -18,9 +18,17 @@ document.addEventListener('DOMContentLoaded', () => {
     matrixBg.appendChild(matrixCanvas);
 
     const ctx = matrixCanvas.getContext('2d');
-    const fontSize = 16;
-    const columns = Math.floor(window.innerWidth / fontSize);
-    const drops = Array(columns).fill(1);
+    let fontSize = 16;
+    let columns;
+    let drops;
+
+    function initializeMatrix() {
+        matrixCanvas.width = window.innerWidth;
+        matrixCanvas.height = window.innerHeight;
+        fontSize = Math.max(12, window.innerWidth / 100); // Adjust font size for smaller screens
+        columns = Math.floor(matrixCanvas.width / fontSize);
+        drops = Array(columns).fill(1); // Reset drops
+    }
 
     function drawMatrix() {
         ctx.fillStyle = 'rgba(0, 0, 0, 0.05)';
@@ -43,8 +51,12 @@ document.addEventListener('DOMContentLoaded', () => {
         requestAnimationFrame(drawMatrix);
     }
 
-    matrixCanvas.width = window.innerWidth;
-    matrixCanvas.height = window.innerHeight;
-
+    // Initialize the Matrix Effect
+    initializeMatrix();
     drawMatrix();
+
+    // Handle Window Resizing
+    window.addEventListener('resize', () => {
+        initializeMatrix();
+    });
 });
