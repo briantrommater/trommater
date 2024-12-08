@@ -1,12 +1,6 @@
 document.addEventListener('DOMContentLoaded', () => {
-    // Add the current year to the footer
-    const footer = document.querySelector('footer p');
-    const currentYear = new Date().getFullYear();
-    footer.innerHTML = `&copy; ${currentYear} OSINT Services. All rights reserved.`;
-
-    // Create a falling green code effect
+    // Matrix code effect (unchanged)
     const matrixBg = document.querySelector('.matrix-bg');
-
     const matrixCanvas = document.createElement('canvas');
     matrixCanvas.id = 'matrixCanvas';
     matrixCanvas.style.position = 'fixed';
@@ -14,7 +8,7 @@ document.addEventListener('DOMContentLoaded', () => {
     matrixCanvas.style.left = '0';
     matrixCanvas.style.width = '100%';
     matrixCanvas.style.height = '100%';
-    matrixCanvas.style.zIndex = '-1'; // Ensure the canvas stays behind the content
+    matrixCanvas.style.zIndex = '-1';
     matrixBg.appendChild(matrixCanvas);
 
     const ctx = matrixCanvas.getContext('2d');
@@ -25,9 +19,9 @@ document.addEventListener('DOMContentLoaded', () => {
     function initializeMatrix() {
         matrixCanvas.width = window.innerWidth;
         matrixCanvas.height = window.innerHeight;
-        fontSize = Math.max(12, window.innerWidth / 100); // Adjust font size for smaller screens
+        fontSize = Math.max(12, window.innerWidth / 100);
         columns = Math.floor(matrixCanvas.width / fontSize);
-        drops = Array(columns).fill(1); // Reset drops
+        drops = Array(columns).fill(1);
     }
 
     function drawMatrix() {
@@ -41,22 +35,57 @@ document.addEventListener('DOMContentLoaded', () => {
             const text = String.fromCharCode(0x30A0 + Math.random() * 96);
             ctx.fillText(text, index * fontSize, y * fontSize);
 
-            // Move the drop down at half speed
             if (y * fontSize > matrixCanvas.height || Math.random() > 0.98) {
-                drops[index] = 0; // Reset drop to the top
+                drops[index] = 0;
             }
-            drops[index] += 0.33; // Slower increment for half speed
+            drops[index] += 0.33;
         });
 
         requestAnimationFrame(drawMatrix);
     }
 
-    // Initialize the Matrix Effect
     initializeMatrix();
     drawMatrix();
 
-    // Handle Window Resizing
-    window.addEventListener('resize', () => {
-        initializeMatrix();
-    });
+    window.addEventListener('resize', initializeMatrix);
+
+    // Falling leaves effect
+    function createLeaf() {
+        const leaf = document.createElement('div');
+        leaf.classList.add('leaf');
+        leaf.style.left = Math.random() * 100 + 'vw';
+        leaf.style.animationDuration = 3 + Math.random() * 2 + 's';
+        leaf.style.animationDelay = Math.random() * 5 + 's';
+        document.body.appendChild(leaf);
+
+        setTimeout(() => {
+            leaf.remove();
+        }, 7000); // Remove the leaf after animation
+    }
+
+    // Add leaves periodically
+    setInterval(createLeaf, 2000);
 });
+
+// Add this CSS for leaf animations
+const style = document.createElement('style');
+style.textContent = `
+    .leaf {
+        position: fixed;
+        top: -50px;
+        width: 10px;
+        height: 10px;
+        background-color: white;
+        border-radius: 50%;
+        opacity: 0.8;
+        animation: fall 5s linear infinite;
+        pointer-events: none;
+    }
+    @keyframes fall {
+        to {
+            transform: translateY(100vh) rotate(360deg);
+            opacity: 0;
+        }
+    }
+`;
+document.head.appendChild(style);
