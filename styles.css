@@ -20,6 +20,36 @@ body {
     pointer-events: none; /* Make it non-interactive */
 }
 
+/* Falling Leaves */
+.leaf {
+    position: fixed;
+    top: -50px;
+    width: 20px;
+    height: 30px;
+    background-color: rgba(255, 255, 255, 0.8);
+    border-radius: 50%;
+    clip-path: ellipse(60% 80% at 50% 50%);
+    opacity: 0.9;
+    animation: fall 8s linear infinite, float 3s ease-in-out infinite;
+    pointer-events: none;
+}
+
+@keyframes fall {
+    to {
+        transform: translateY(100vh) rotate(360deg);
+        opacity: 0;
+    }
+}
+
+@keyframes float {
+    0%, 100% {
+        transform: translateX(0);
+    }
+    50% {
+        transform: translateX(30px);
+    }
+}
+
 /* Content Wrapper */
 .content-wrapper {
     position: relative;
