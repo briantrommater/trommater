@@ -59,7 +59,7 @@ document.addEventListener('DOMContentLoaded', () => {
             if (y * fontSize > matrixCanvas.height || Math.random() > 0.98) {
                 drops[index] = 0;
             }
-            drops[index] += 0.33;
+            drops[index] += 0.2;
         });
 
         requestAnimationFrame(drawMatrix);
