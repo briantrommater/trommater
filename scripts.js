@@ -33,7 +33,7 @@ document.addEventListener('DOMContentLoaded', () => {
             ctx.fillRect(0, 0, matrixCanvas.width, matrixCanvas.height);
 
             ctx.fillStyle = '#00ff00';
-            ctx.font = `${fontSize}px monospace`;
+            ctx.font = ${fontSize}px monospace;
 
             drops.forEach((y, index) => {
                 const text = String.fromCharCode(0x30A0 + Math.random() * 96);
@@ -72,7 +72,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         // Add CSS for leaf animations
         const style = document.createElement('style');
-        style.textContent = `
+        style.textContent = 
             .leaf {
                 position: fixed;
                 top: -50px;
@@ -99,7 +99,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     transform: translateX(30px);
                 }
             }
-        `;
+        ;
         document.head.appendChild(style);
     }
 });
