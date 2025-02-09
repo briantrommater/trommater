@@ -3,68 +3,32 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Professional Open Source Intelligence (OSINT) services to meet your investigative needs.">
-    <title>OSINT Services</title>
-    <!-- Link to External CSS -->
+    <meta name="description" content="Phishing Detection MVP - Enter text to analyze its phishing risk.">
+    <title>Phishing Detection Tool</title>
     <link rel="stylesheet" href="styles.css">
-    <!-- Canary Token for Security Testing -->
-    <img src="https://canarytokens.com/feedback/bo87gtd5qexavl9nhgo1hmlkj" alt="tracking" style="display:none;">
 </head>
 <body>
-    <div class="matrix-bg">
+    <div class="container">
         <header>
-            <h1>OSINT Services</h1>
-            <p>Uncover the Truth in a Digital World</p>
+            <h1>Phishing Detection Tool</h1>
+            <p>Paste a string or text to analyze its phishing risk.</p>
         </header>
+        
         <main>
             <section>
-                <h2>About Us</h2>
-                <p>We are experts in Open Source Intelligence (OSINT), leveraging cutting-edge techniques to provide deep insights and reliable data analysis for businesses, individuals, and government entities.</p>
-            </section>
-            <section>
-                <h2>Watch Our Introduction</h2>
-                <!-- First YouTube Video -->
-                <div class="video-container">
-                    <iframe 
-                        src="https://www.youtube.com/embed/1VmWDg5A-I0" 
-                        frameborder="0" 
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-                        allowfullscreen>
-                    </iframe>
-                </div>
-            </section>
-            <section>
-                <h2>Your Questions Answered</h2>
-                <!-- Second YouTube Video -->
-                <div class="video-container">
-                    <iframe 
-                        src="https://www.youtube.com/embed/pnhghe2PNoc" 
-                        frameborder="0" 
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-                        allowfullscreen>
-                    </iframe>
-                </div>
-                <p>Watch me answer one of your questions from an email! Submit your questions, and I might feature yours in the next video.</p>
-            </section>
-            <section>
-                <h2>Our Services</h2>
-                <ul>
-                    <li>Social Media Investigations</li>
-                    <li>Geolocation and Metadata Analysis</li>
-                    <li>Corporate and Personal Risk Assessment</li>
-                    <li>Threat Intelligence and Profiling</li>
-                </ul>
-            </section>
-            <section>
-                <h2>Why Choose Us?</h2>
-                <p>We deliver precise, actionable intelligence while adhering to the highest ethical standards. Trust us to turn data into clarity.</p>
-                <a href="mailto:briantrommater@protonmail.com" class="btn">Contact Us</a>
+                <h2>Enter Text Below</h2>
+                <textarea id="inputText" placeholder="Paste your text here..."></textarea>
+                <button onclick="analyzeText()">Analyze</button>
+                <h3>Risk Score:</h3>
+                <p id="riskScore">-</p>
             </section>
         </main>
+        
         <footer>
-            <p>&copy; 2024 OSINT Services. All rights reserved.</p>
+            <p>&copy; 2025 Phishing Detection MVP. All rights reserved.</p>
         </footer>
     </div>
+    
     <script src="scripts.js"></script>
 </body>
 </html>
