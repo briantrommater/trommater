@@ -5,22 +5,89 @@ body {
     padding: 0;
     background-color: black;
     color: #00ff00;
-    overflow-y: auto; /* Allow vertical scrolling */
-    overflow-x: hidden; /* Prevent horizontal overflow */
+    overflow-y: auto;
+    overflow-x: hidden;
 }
 
-/* Matrix Background */
+/* Content Container */
+.container {
+    max-width: 800px;
+    margin: 50px auto;
+    padding: 20px;
+    background: rgba(0, 0, 0, 0.8);
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.7);
+    text-align: center;
+    position: relative;
+    z-index: 1;
+}
+
+/* Header */
+header h1 {
+    font-size: 2.5rem;
+    color: #00ff00;
+    text-shadow: 0 0 10px #00ff00;
+}
+
+header p {
+    font-size: 1.2rem;
+    color: #00cc00;
+}
+
+/* Text Input Area */
+textarea {
+    width: 100%;
+    height: 150px;
+    font-size: 1rem;
+    padding: 10px;
+    background-color: black;
+    color: #00ff00;
+    border: 1px solid #00ff00;
+    border-radius: 5px;
+}
+
+/* Analyze Button */
+button {
+    display: block;
+    margin: 20px auto;
+    padding: 12px 20px;
+    color: black;
+    background: #00ff00;
+    font-weight: bold;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+}
+
+button:hover {
+    background: #00cc00;
+    transform: scale(1.1);
+}
+
+/* Risk Score Display */
+h3 {
+    color: #00ff00;
+    text-shadow: 0 0 10px #00ff00;
+}
+
+p#riskScore {
+    font-size: 1.5rem;
+    color: #ff0000;
+    font-weight: bold;
+}
+
+/* Background Effects */
 .matrix-bg canvas {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    z-index: -1; /* Ensure it's behind the content */
-    pointer-events: none; /* Make it non-interactive */
+    z-index: -1;
+    pointer-events: none;
 }
 
-/* Falling Leaves */
 .leaf {
     position: fixed;
     top: -50px;
@@ -50,100 +117,6 @@ body {
     }
 }
 
-/* Content Wrapper */
-.content-wrapper {
-    position: relative;
-    z-index: 1; /* Ensure content is above the canvas */
-    padding: 20px;
-    max-width: 800px;
-    margin: 20px auto;
-    background: rgba(0, 0, 0, 0.8); /* Dark transparent background */
-    border-radius: 10px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.7);
-}
-
-/* Header */
-header {
-    text-align: center;
-    padding: 30px;
-    margin-bottom: 20px;
-}
-
-header h1 {
-    font-size: 2.8rem;
-    color: #00ff00;
-    text-shadow: 0 0 10px #00ff00;
-}
-
-header p {
-    font-size: 1.2rem;
-    color: #00cc00;
-}
-
-/* Video Container */
-.video-container {
-    position: relative;
-    padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
-    height: 0;
-    overflow: hidden;
-    margin-bottom: 20px;
-}
-
-.video-container iframe {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    border: none;
-}
-
-/* Main Content */
-h2 {
-    color: #00ff00;
-    text-shadow: 0 0 10px #00ff00;
-}
-
-ul {
-    list-style: none;
-    padding: 0;
-}
-
-ul li {
-    padding: 5px 0;
-    position: relative;
-}
-
-ul li::before {
-    content: '>';
-    color: #00cc00;
-    margin-right: 10px;
-}
-
-p {
-    line-height: 1.5;
-}
-
-/* Buttons */
-.btn {
-    display: inline-block;
-    padding: 12px 20px;
-    color: black;
-    background: #00ff00;
-    text-decoration: none;
-    font-weight: bold;
-    border-radius: 5px;
-    text-shadow: 0 0 5px #000;
-    transition: all 0.3s ease-in-out;
-    position: relative; /* Ensure it's positioned relative to content */
-    z-index: 2; /* Ensure it's above any overlapping elements */
-}
-
-.btn:hover {
-    background: #00cc00;
-    transform: scale(1.1);
-}
-
 /* Footer */
 footer {
     text-align: center;
@@ -157,61 +130,4 @@ footer {
 footer p {
     margin: 0;
     color: #00cc00;
-}
-
-/* Responsive Design */
-@media (max-width: 768px) {
-    .content-wrapper {
-        padding: 15px;
-        margin: 10px;
-    }
-
-    header h1 {
-        font-size: 2rem;
-    }
-
-    header p {
-        font-size: 1rem;
-    }
-
-    h2 {
-        font-size: 1.5rem;
-    }
-
-    p, ul li {
-        font-size: 1rem;
-    }
-
-    .btn {
-        padding: 10px 15px;
-        font-size: 0.9rem;
-    }
-}
-
-@media (max-width: 480px) {
-    .content-wrapper {
-        padding: 10px;
-        margin: 5px;
-    }
-
-    header h1 {
-        font-size: 1.8rem;
-    }
-
-    header p {
-        font-size: 0.9rem;
-    }
-
-    h2 {
-        font-size: 1.2rem;
-    }
-
-    p, ul li {
-        font-size: 0.8rem;
-    }
-
-    .btn {
-        padding: 8px 12px;
-        font-size: 0.8rem;
-    }
 }
