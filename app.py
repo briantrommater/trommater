@@ -1,20 +1,41 @@
 from flask import Flask, request, jsonify
-from flask_cors import CORS  # Import Flask-CORS
+from flask_cors import CORS
+from spellchecker import SpellChecker  # Import spell checker
 
 app = Flask(__name__)
-CORS(app)  # Enable CORS for all routes
+CORS(app)
 
-# Basic phishing risk scoring
+# Initialize spell checker
+spell = SpellChecker()
+
+# Phishing keyword list
+phishing_keywords = ["urgent", "password", "click here", "verify", "update your account", "login now"]
+
 def calculate_risk(text):
-    phishing_keywords = ["urgent", "password", "click here", "verify", "update your account", "login now"]
-    score = sum(1 for word in phishing_keywords if word in text.lower())
-    return {"risk_score": min(100, score * 20)}
+    words = text.lower().split()
+    
+    # Count phishing keywords
+    score = sum(1 for word in phishing_keywords if word in words)
+    
+    # Check for misspelled words
+    misspelled = spell.unknown(words)
+    num_misspelled = len(misspelled)
+
+    # Base risk score
+    risk_percentage = min(100, score * 20)
+    
+    # If many words are misspelled, force risk score to at least 75%
+    if num_misspelled >= 3:  # Adjust this threshold as needed
+        risk_percentage = max(risk_percentage, 75)
+
+    return {"risk_score": risk_percentage}
 
 @app.route('/analyze', methods=['POST'])
 def analyze_text():
     data = request.json
     if 'text' not in data:
         return jsonify({"error": "No text provided"}), 400
+    
     return jsonify(calculate_risk(data['text']))
 
 if __name__ == '__main__':
