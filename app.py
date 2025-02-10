@@ -17,15 +17,14 @@ def calculate_risk(text):
     # Count phishing keywords
     score = sum(1 for word in phishing_keywords if word in words)
     
-    # Check for misspelled words
+    # Check for misspelled words (handle single-word cases)
     misspelled = spell.unknown(words)
-    num_misspelled = len(misspelled)
 
     # Base risk score
     risk_percentage = min(100, score * 20)
     
-    # If many words are misspelled, force risk score to at least 75%
-    if num_misspelled >= 3:  # Adjust this threshold as needed
+    # If at least one word is misspelled, force risk score to at least 75%
+    if misspelled:  # This works even if there's just one word
         risk_percentage = max(risk_percentage, 75)
 
     return {"risk_score": risk_percentage}
