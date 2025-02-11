@@ -1,1 +1,2 @@
-web: gunicorn -w 4 -b 0.0.0.0:$PORT app:app 
+web: pip install -r requirements.txt && gunicorn -w 4 -b 0.0.0.0:$PORT app:app
+
