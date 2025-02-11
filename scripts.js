@@ -1,4 +1,6 @@
 async function analyzeText() {
+    console.log("Analyze button clicked!"); // Debugging line
+
     const text = document.getElementById("inputText").value;
     const resultElement = document.getElementById("result");
 
@@ -6,6 +8,8 @@ async function analyzeText() {
         console.error("Error: 'result' element not found in the DOM.");
         return;
     }
+
+    console.log("Sending text to API:", text); // Debugging line
 
     const response = await fetch("https://trommater-production.up.railway.app/analyze", {
         method: "POST",
@@ -20,5 +24,7 @@ async function analyzeText() {
     }
 
     const result = await response.json();
+    console.log("Received response:", result); // Debugging line
+
     resultElement.innerText = `Risk Score: ${result.risk_score}%`;
 }
