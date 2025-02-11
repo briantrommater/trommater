@@ -3,7 +3,7 @@ from flask_cors import CORS
 from spellchecker import SpellChecker
 
 app = Flask(__name__)
-CORS(app)  # Allow all origins (for now, remove this later)
+CORS(app, resources={r"/analyze": {"origins": "*"}})
 
 # Initialize spell checker
 spell = SpellChecker()
