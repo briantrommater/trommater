@@ -29,6 +29,11 @@ def calculate_risk(text):
 
     return {"risk_score": risk_percentage}
 
+# Default route to confirm the server is running
+@app.route("/")
+def home():
+    return "Phishing risk analyzer is running!"
+
 @app.route('/analyze', methods=['POST'])
 def analyze_text():
     data = request.json
@@ -37,6 +42,5 @@ def analyze_text():
     
     return jsonify(calculate_risk(data['text']))
 
-if __name__ == '__main__':
-    app.run(debug=True, host='0.0.0.0', port=5000)
-
+if __name__ == "__main__":
+    app.run(debug=True, host="0.0.0.0", port=8080)
