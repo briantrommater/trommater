@@ -1,9 +1,9 @@
 from flask import Flask, request, jsonify
-from flask_cors import CORS  # Import CORS
-from spellchecker import SpellChecker  # Import spell checker
+from flask_cors import CORS
+from spellchecker import SpellChecker
 
-app = Flask(__name__)  # Define Flask app first
-CORS(app, resources={r"/*": {"origins": ["https://briantrommater.com", "https://www.briantrommater.com"]}})
+app = Flask(__name__)
+CORS(app)  # Allow all origins (for now, remove this later)
 
 # Initialize spell checker
 spell = SpellChecker()
