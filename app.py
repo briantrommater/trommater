@@ -1,12 +1,9 @@
 from flask import Flask, request, jsonify
-from flask_cors import CORS
-
-CORS(app, resources={r"/*": {"origins": "https://briantrommater.com"}})
-
+from flask_cors import CORS  # Import CORS
 from spellchecker import SpellChecker  # Import spell checker
 
-app = Flask(__name__)
-CORS(app)
+app = Flask(__name__)  # Define Flask app first
+CORS(app, resources={r"/*": {"origins": "https://briantrommater.com"}})  # Apply CORS after defining app
 
 # Initialize spell checker
 spell = SpellChecker()
@@ -20,14 +17,14 @@ def calculate_risk(text):
     # Count phishing keywords
     score = sum(1 for word in phishing_keywords if word in words)
     
-    # Check for misspelled words (handle single-word cases)
+    # Check for misspelled words
     misspelled = spell.unknown(words)
 
     # Base risk score
     risk_percentage = min(100, score * 20)
     
     # If at least one word is misspelled, force risk score to at least 75%
-    if misspelled:  # This works even if there's just one word
+    if misspelled:
         risk_percentage = max(risk_percentage, 75)
 
     return {"risk_score": risk_percentage}
