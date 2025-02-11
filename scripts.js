@@ -1,16 +1,13 @@
 async function analyzeText() {
     const text = document.getElementById("inputText").value;
-
-    const response = await fetch("https://briantrommater.com/analyze", {
+    const response = await fetch("https://trommater-production.up.railway.app/analyze", {
         method: "POST",
-        headers: {
-            "Content-Type": "application/json"
-        },
-        body: JSON.stringify({ text })
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ text: text })
     });
 
     const result = await response.json();
-    document.getElementById("riskScore").innerText = result.risk_score + "% Risk";
+    document.getElementById("result").innerText = `Risk Score: ${result.risk_score}%`;
 }
 
 // Ensure the page loads before running any scripts
