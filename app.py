@@ -3,7 +3,7 @@ from flask_cors import CORS  # Import CORS
 from spellchecker import SpellChecker  # Import spell checker
 
 app = Flask(__name__)  # Define Flask app first
-CORS(app)  # Allow all origins for now
+CORS(app, origins=["https://briantrommater.com"])  # Allow only your website
 
 # Initialize spell checker
 spell = SpellChecker()
@@ -29,8 +29,7 @@ def calculate_risk(text):
 
     return {"risk_score": risk_percentage}
 
-# Default route to confirm the server is running
-@app.route("/")
+@app.route('/')
 def home():
     return "Phishing risk analyzer is running!"
 
@@ -42,5 +41,5 @@ def analyze_text():
     
     return jsonify(calculate_risk(data['text']))
 
-if __name__ == "__main__":
-    app.run(debug=True, host="0.0.0.0", port=8080)
+if __name__ == '__main__':
+    app.run(debug=True, host='0.0.0.0', port=5000)
