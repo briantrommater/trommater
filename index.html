@@ -30,20 +30,28 @@
     </div>
     
     <script>
-        async function analyzeText() {
-            const text = document.getElementById("inputText").value;
+    async function analyzeText() {
+        const text = document.getElementById("inputText").value;
 
-            const response = await fetch("http://127.0.0.1:5000/analyze", {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json"
-                },
-                body: JSON.stringify({ text })
-            });
+        const response = await fetch("https://trommater-production.up.railway.app/analyze", { 
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ text: text })
+        });
 
-            const result = await response.json();
-            document.getElementById("riskScore").innerText = result.risk_score + "% Risk";
+        if (!response.ok) {
+            console.error("Failed to fetch:", response.statusText);
+            document.getElementById("riskScore").innerText = "Error: Could not analyze text.";
+            return;
         }
+
+        const result = await response.json();
+        document.getElementById("riskScore").innerText = result.risk_score + "% Risk";
+    }
     </script>
+
+    <!-- Make sure to reference the updated JS file -->
+    <script src="scripts.js?v=3"></script>
+
 </body>
 </html>
