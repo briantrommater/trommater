@@ -4,8 +4,8 @@ from spellchecker import SpellChecker
 
 app = Flask(__name__)
 
-# ✅ Correct CORS setup
-CORS(app, resources={r"/analyze": {"origins": "https://briantrommater.com"}})
+# Explicitly allow credentials and set allowed origin
+CORS(app, supports_credentials=True, origins=["https://briantrommater.com"])
 
 spell = SpellChecker()
 phishing_keywords = ["urgent", "password", "click here", "verify", "update your account", "login now"]
