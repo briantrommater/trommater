@@ -68,3 +68,23 @@ textarea {
     border-right: 2px solid #00ff00;
     animation: typing 2s steps(20, end) forwards;
 }
+
+#riskScore {
+    font-size: 1.5rem;
+    font-weight: bold;
+    transition: color 0.5s ease-in-out;
+}
+
+/* Color transitions */
+.low-risk {
+    color: #00ff00; /* Green */
+}
+
+.medium-risk {
+    color: #ffff00; /* Yellow */
+}
+
+.high-risk {
+    color: #ff0000; /* Red */
+}
+
