@@ -9,6 +9,15 @@ body {
     overflow-x: hidden;
 }
 
+#result {
+    font-size: 1.5rem; /* Make it larger */
+    font-weight: bold;
+    text-align: center;
+    color: #00ff00; /* Bright green */
+    margin-top: 10px; /* Add space above */
+    display: block;
+}
+
 /* Content Container */
 .container {
     max-width: 800px;
