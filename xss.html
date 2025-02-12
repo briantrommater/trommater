@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>XSS Testing Tool</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Cross-Site Scripting (XSS) Testing Tool</h1>
+        <p>Drag and drop potential XSS payloads into the input box and click "Test XSS"</p>
+        
+        <div class="drag-container" id="payloads">
+            <!-- XSS payloads will be generated here dynamically -->
+        </div>
+
+        <div class="drop-zone" id="dropZone">
+            <input type="text" id="testInput" placeholder="Drop payload here..." readonly>
+        </div>
+
+        <button onclick="testXSS()">Test XSS</button>
+        <p id="result"></p>
+    </div>
+
+    <script>
+        // List of XSS payloads (some are real, some are safe)
+        const payloads = [
+            '<script>alert(1)</script>', 
+            '" onmouseover="alert(1)', 
+            '<img src=x onerror=alert(1)>',
+            '<svg onload=alert(1)>',
+            '<b>Safe text</b>',
+            'Hello World!',
+            '<a href="javascript:alert(1)">Click me</a>',
+            '<iframe src="javascript:alert(1)"></iframe>',
+            'console.log("Test");'
+        ];
+        
+        // Randomly select 6 test cases for the user
+        function generatePayloads() {
+            const selectedPayloads = payloads.sort(() => 0.5 - Math.random()).slice(0, 6);
+            const container = document.getElementById("payloads");
+            container.innerHTML = "";
+            
+            selectedPayloads.forEach(payload => {
+                let div = document.createElement("div");
+                div.classList.add("draggable");
+                div.draggable = true;
+                div.innerText = payload;
+                div.ondragstart = function(event) {
+                    event.dataTransfer.setData("text", payload);
+                };
+                container.appendChild(div);
+            });
+        }
+        
+        // Handle drop event
+        document.getElementById("dropZone").ondrop = function(event) {
+            event.preventDefault();
+            let data = event.dataTransfer.getData("text");
+            document.getElementById("testInput").value = data;
+        };
+        document.getElementById("dropZone").ondragover = function(event) {
+            event.preventDefault();
+        };
+        
+        // Test for XSS (Simple client-side test, backend needed for deeper analysis)
+        function testXSS() {
+            let input = document.getElementById("testInput").value;
+            let result = document.getElementById("result");
+            
+            if (input.includes("<script>") || input.includes("onerror") || input.includes("javascript:")) {
+                result.innerHTML = "❌ Possible XSS risk detected!";
+                result.style.color = "red";
+            } else {
+                result.innerHTML = "✅ Input appears safe.";
+                result.style.color = "green";
+            }
+        }
+        
+        // Initialize the payloads on page load
+        window.onload = generatePayloads;
+    </script>
+</body>
+</html>
