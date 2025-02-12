@@ -2,7 +2,7 @@ async function analyzeText() {
     console.log("Analyze button clicked!"); // Debugging line
 
     const text = document.getElementById("inputText").value;
-    const resultElement = document.getElementById("result");
+    const resultElement = document.getElementById("riskScore");
 
     if (!resultElement) {
         console.error("Error: 'result' element not found in the DOM.");
