@@ -82,5 +82,15 @@
         // Initialize the payloads on page load
         window.onload = generatePayloads;
     </script>
+            <div class="captcha-container">
+            <h2>Shuffle CAPTCHA</h2>
+            <p>Click "Shuffle" until the image looks correct.</p>
+            <div class="captcha-grid" id="captchaGrid">
+        <!-- Image tiles will be inserted here -->
+            </div>
+            <button onclick="shuffleTiles()">Shuffle</button>
+            <button onclick="verifyCaptcha()">Verify</button>
+            <p id="captchaResult"></p>
+            </div>
 </body>
 </html>
